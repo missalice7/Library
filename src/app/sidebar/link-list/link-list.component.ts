@@ -14,17 +14,17 @@ export class LinkListComponent implements OnInit {
     {
       id: '45646546',
       title: 'Harry Potter',
-      author: 'string'
+      author: 'Rowling',
     },
     {
       id: '45646546',
       title: 'Lord of The Rings',
-      author: 'string'
+      author: 'Tolkien',
     },
     {
       id: '45646546',
       title: 'Two Towers',
-      author: 'string'
+      author: 'Tolkien'
     }
   ];
 
