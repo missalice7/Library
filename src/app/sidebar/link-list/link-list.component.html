@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor= "let book of books">
-        <a [routerLink]=''>{{book.title}}</a>
+    <li *ngFor= "let book of links">
+        <a [routerLink]='book.href'>{{book.label}}</a>
     </li>
 </ul>

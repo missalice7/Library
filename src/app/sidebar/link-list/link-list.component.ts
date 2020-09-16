@@ -1,34 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from './types';
+import { BooksService } from './../../books.service';
+import { Book } from './../../types';
+
+interface MenuLink {
+  label: string;
+  href: string;
+}
 
 @Component({
   selector: 'app-link-list',
   templateUrl: './link-list.component.html',
   styleUrls: ['./link-list.component.css']
 })
+
+
+
 export class LinkListComponent implements OnInit {
 
-  constructor() { }
+  links: MenuLink[];
 
-  books: Book[] = [
-    {
-      id: '45646546',
-      title: 'Harry Potter',
-      author: 'Rowling',
-    },
-    {
-      id: '45646546',
-      title: 'Lord of The Rings',
-      author: 'Tolkien',
-    },
-    {
-      id: '45646546',
-      title: 'Two Towers',
-      author: 'Tolkien'
-    }
-  ];
+  constructor(private bookService: BooksService) { }
+
 
   ngOnInit(): void {
+
+    this.links = this.bookService.getAllBooks()
+    .map((book) => {
+      return {
+        label: book.title,
+        href: `/recipes/${book.id}`
+      };
+    });
   }
 
 }
