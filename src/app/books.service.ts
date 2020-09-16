@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Book } from './types';
 
-const booksDictionary: Book[] = [
+const BOOKS: Book[] = [
   {
-    id: '45646546',
+    id: '1',
     title: 'Harry Potter',
     author: 'Rowling',
   },
   {
-    id: '45646546',
+    id: '2',
     title: 'Lord of The Rings',
     author: 'Tolkien',
   },
   {
-    id: '45646546',
+    id: '3',
     title: 'Two Towers',
     author: 'Tolkien'
   }
@@ -28,6 +28,6 @@ export class BooksService {
   constructor() { }
 
   getAllBooks(): Book[] {
-    return Object.values(booksDictionary);
+    return Object.values(BOOKS);
   }
 }

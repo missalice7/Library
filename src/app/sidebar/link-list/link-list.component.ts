@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from './../../books.service';
 import { Book } from './../../types';
 
-interface MenuLink {
+interface Links {
   label: string;
   href: string;
 }
@@ -17,7 +17,7 @@ interface MenuLink {
 
 export class LinkListComponent implements OnInit {
 
-  links: MenuLink[];
+  links: Links[];
 
   constructor(private bookService: BooksService) { }
 
