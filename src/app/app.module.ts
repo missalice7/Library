@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LinkListComponent } from './sidebar/link-list/link-list.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { BookDetailsComponent } from './main-page/book-details/book-details.component';
+import { HomepageComponent } from './main-page/homepage/homepage.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     SidebarComponent,
     LinkListComponent,
     BookDetailsComponent,
-    HomepageComponent
+    HomepageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

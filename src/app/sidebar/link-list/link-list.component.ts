@@ -26,7 +26,7 @@ export class LinkListComponent implements OnInit {
       title: 'Two Towers',
       author: 'string'
     }
-  ]
+  ];
 
   ngOnInit(): void {
   }
