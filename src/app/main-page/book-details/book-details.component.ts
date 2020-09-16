@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from './../../types';
+import { BookService } from './../../book.service';
 
 @Component({
   selector: 'app-book-details',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor() { }
+  activeBook: Book;
+
+  constructor(private route: ActivatedRoute, private service: BookService) { }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe((paramMap) => {
+      const title = paramMap.get('bookTitle');
+
+      this.activeBook = this.service.getBook(title);
+    });
   }
 
 }

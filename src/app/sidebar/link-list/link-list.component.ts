@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from './../../books.service';
+import { BookService } from '../../book.service';
 import { Book } from './../../types';
 
 interface Links {
@@ -19,7 +19,7 @@ export class LinkListComponent implements OnInit {
 
   links: Links[];
 
-  constructor(private bookService: BooksService) { }
+  constructor(private bookService: BookService) { }
 
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class LinkListComponent implements OnInit {
     .map((book) => {
       return {
         label: book.title,
-        href: `/recipes/${book.id}`
+        href: `/book/${book.id}`
       };
     });
   }

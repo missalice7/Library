@@ -23,11 +23,16 @@ const BOOKS: Book[] = [
 @Injectable({
   providedIn: 'root'
 })
-export class BooksService {
+export class BookService {
 
   constructor() { }
 
   getAllBooks(): Book[] {
     return Object.values(BOOKS);
   }
+
+  getBook(id: string): Book {
+    return BOOKS[id];
+  }
+
 }
