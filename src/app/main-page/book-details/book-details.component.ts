@@ -14,12 +14,12 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: BookService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
 
     this.route.paramMap.subscribe((paramMap) => {
       const name = paramMap.get('bookId');
 
-      this.activeBook = this.service.getBook(name);
+      // this.activeBook = this.service.getBook(name);
     });
   }
 

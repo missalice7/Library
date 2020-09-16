@@ -22,10 +22,17 @@ export class LinkListComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.links = [{
+      href: '',
+      label: 'Lorem Ipsum...'
+    }, {
+      href: '',
+      label: 'Lorem Ipsum...',
+    }];
 
-    this.links = this.bookService.getAllBooks()
-    .map((book) => {
+    const books = await this.bookService.getAllBooks();
+    this.links = books.map(book => {
       return {
         label: book.title,
         href: `/book/${book.id}`
