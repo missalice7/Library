@@ -17,9 +17,9 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.paramMap.subscribe((paramMap) => {
-      const title = paramMap.get('bookTitle');
+      const name = paramMap.get('bookId');
 
-      this.activeBook = this.service.getBook(title);
+      this.activeBook = this.service.getBook(name);
     });
   }
 

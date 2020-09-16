@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Book } from './types';
 
-const BOOKS: Book[] = [
-  {
-    id: '1',
+const BOOKS: {
+  [key: string]: Book
+} = {
+  one: {
+    id: 'one',
     title: 'Harry Potter',
     author: 'Rowling',
   },
-  {
-    id: '2',
+  two: {
+    id: 'two',
     title: 'Lord of The Rings',
     author: 'Tolkien',
   },
-  {
-    id: '3',
+  three: {
+    id: 'three',
     title: 'Two Towers',
     author: 'Tolkien'
   }
-];
+};
 
 
 @Injectable({
