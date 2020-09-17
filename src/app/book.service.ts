@@ -14,7 +14,7 @@ interface ServerBook {
 interface RawBook {
   key: string;
   title: string;
-  author_name: string | string[];
+  authors: string | string[];
   cover: string;
 }
 
@@ -29,20 +29,7 @@ export class BookService {
 
   constructor() { }
 
-  toBook(rawBook?: RawBook, serverBook?: ServerBook): Book {
-
-    if (rawBook) {
-      const getId = extractId(rawBook.key);
-      console.log (getId);
-
-      return {
-        id: getId,
-        title: serverBook.title,
-        authors: serverBook.author_name,
-        cover: serverBook.cover
-      };
-    }
-    else if (serverBook) {
+  toServerBook(serverBook: ServerBook): Book {
 
       return {
         id: serverBook.id,
@@ -51,13 +38,25 @@ export class BookService {
         cover: serverBook.cover
       };
     }
+
+  toRawBook(book: RawBook): Book{
+
+    const bookID = extractId(book.key);
+    console.log (bookID);
+
+    return {
+      id: bookID,
+      title: book.title,
+      authors: book.authors[0],
+      cover: book.cover
+    };
   }
 
 
   async getAllBooks(): Promise<Book[]> {
     const booksResponse = await fetch('https://m24eh.sse.codesandbox.io/search?author=tolkien');
-    const serverBooks = (await booksResponse.json()).docs as RawBook[];
-    const books = serverBooks.map((book) => this.toBook(book));
+    const serverBooks = (await booksResponse.json()).docs as ServerBook[];
+    const books = serverBooks.map((book) => this.toServerBook(book));
 
     this.bookCache = new Map(books.map((book) => [book.id, book]));
 
@@ -73,7 +72,7 @@ export class BookService {
 
     const booksResponse = await fetch(`https://m24eh.sse.codesandbox.io/books?id=${id}&format=json&jscmd=details`);
     const serverBook = (await booksResponse.json()).details as RawBook;
-    const book = this.toBook(serverBook);
+    const book = this.toRawBook(serverBook);
 
     console.log(serverBook);
     console.log (book);
