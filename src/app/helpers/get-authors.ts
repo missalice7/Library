@@ -2,7 +2,7 @@ import { Author } from '../types';
 
 
 
-export function getAuthor(arrayAuthors: [Author]): Array<string> {
+export function getAuthor(arrayAuthors: [Author]): string {
 
     const arrAuthors = [];
 
@@ -12,5 +12,5 @@ export function getAuthor(arrayAuthors: [Author]): Array<string> {
             arrAuthors.push(authorName);
         });
 
-    return arrAuthors;
-    }
+    return arrAuthors.join(' and ');
+}

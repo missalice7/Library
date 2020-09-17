@@ -26,7 +26,7 @@ export class BookService {
   toRawBook(rawBook: RawBook): Book{
 
     const bookID = extractId(rawBook.key);
-    const authors = getAuthor(rawBook.authors)
+    const authors = getAuthor(rawBook.authors);
 
     return {
       id: bookID,
