@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
 import { extractId } from '../app/helpers/extract-id';
+import { getAuthor } from './helpers/get-authors';
 
 
 
@@ -25,11 +26,12 @@ export class BookService {
   toRawBook(rawBook: RawBook): Book{
 
     const bookID = extractId(rawBook.key);
+    const authors = getAuthor(rawBook.authors)
 
     return {
       id: bookID,
       title: rawBook.title,
-      authors: rawBook.authors[0],
+      authors,
       cover: rawBook.cover
     };
   }

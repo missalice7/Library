@@ -1,8 +1,13 @@
 interface Book {
     id: string,
     title: string,
-    authors: string | string[],
+    authors: string | Array<string>,
     cover: string
+}
+
+interface Author {
+    name: string;
+    key: string;
 }
 
 interface ServerBook {
@@ -15,13 +20,14 @@ interface ServerBook {
   interface RawBook {
     key: string;
     title: string;
-    authors: string | string[];
+    authors: [Author];
     cover: string;
 }
 
 export {
     Book,
     ServerBook,
-    RawBook
+    RawBook,
+    Author
 }
   
