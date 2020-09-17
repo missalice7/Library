@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from './../../types';
 import { BookService } from './../../book.service';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-book-details',
@@ -12,20 +13,24 @@ export class BookDetailsComponent implements OnInit {
 
   activeBook: Book;
 
-
   constructor(private route: ActivatedRoute, private service: BookService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
 
-    this.route.paramMap.subscribe((paramMap) => {
-      const id = paramMap.get('bookId');
+    this.activeBook = {
+      id: 'Loading...',
+      title: 'Loading...',
+      authors: 'Loading...',
+      cover: 'Loading...'
+    };
 
-      const getActiveBook = this.service.getBook(id);
-      getActiveBook.then((result: Book) => this.activeBook = result);
+    this.route.paramMap.subscribe(async (paramMap) => {
+        const id = paramMap.get('bookId');
+        this.activeBook = await this.service.getBook(id);
 
+      });
 
-      console.log(this.activeBook);
-    });
+    console.log(this.activeBook);
 
   }
 

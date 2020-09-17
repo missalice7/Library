@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Book, ServerBook, RawBook } from './types';
+import { Book, RawBook, ServerBook } from './types';
 import { extractId } from '../app/helpers/extract-id';
-
-
-
-
 
 
 
@@ -22,7 +18,7 @@ export class BookService {
         id: serverBook.id,
         title: serverBook.title,
         authors: serverBook.author_name,
-        cover: serverBook.cover
+        cover: `http://covers.openlibrary.org/b/OLID/${serverBook.id}-M.jpg`
       };
     }
 
@@ -60,7 +56,7 @@ export class BookService {
     const book = this.toRawBook(rawBook);
 
     // console.log(rawBook);
-    console.log (book);
+    // console.log (book);
 
     this.bookCache.set(book.id, book);
 

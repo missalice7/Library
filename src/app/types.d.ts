@@ -12,7 +12,7 @@ interface ServerBook {
     cover: string;
 }
   
-interface RawBook {
+  interface RawBook {
     key: string;
     title: string;
     authors: string | string[];
