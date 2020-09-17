@@ -20,7 +20,11 @@ export class BookDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap) => {
       const id = paramMap.get('bookId');
 
-      this.service.getBook(id);
+      const getActiveBook = this.service.getBook(id);
+      getActiveBook.then((result: Book) => this.activeBook = result);
+
+
+      console.log(this.activeBook);
     });
 
   }

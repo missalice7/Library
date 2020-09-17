@@ -1,22 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Book } from './types';
+import { Book, ServerBook, RawBook } from './types';
 import { extractId } from '../app/helpers/extract-id';
 
 
 
-interface ServerBook {
-  id: string;
-  title: string;
-  author_name: string | string[];
-  cover: string;
-}
-
-interface RawBook {
-  key: string;
-  title: string;
-  authors: string | string[];
-  cover: string;
-}
 
 
 
@@ -39,16 +26,15 @@ export class BookService {
       };
     }
 
-  toRawBook(book: RawBook): Book{
+  toRawBook(rawBook: RawBook): Book{
 
-    const bookID = extractId(book.key);
-    console.log (bookID);
+    const bookID = extractId(rawBook.key);
 
     return {
       id: bookID,
-      title: book.title,
-      authors: book.authors[0],
-      cover: book.cover
+      title: rawBook.title,
+      authors: rawBook.authors[0],
+      cover: rawBook.cover
     };
   }
 
@@ -63,7 +49,6 @@ export class BookService {
     return Array.from(this.bookCache.values());
   }
 
-  // SEPARATE
 
   async getBook(id: Book['id']): Promise<Book> {
     if (this.bookCache.has(id)) {
@@ -71,10 +56,10 @@ export class BookService {
     }
 
     const booksResponse = await fetch(`https://m24eh.sse.codesandbox.io/books?id=${id}&format=json&jscmd=details`);
-    const serverBook = (await booksResponse.json()).details as RawBook;
-    const book = this.toRawBook(serverBook);
+    const rawBook = (await booksResponse.json()).details as RawBook;
+    const book = this.toRawBook(rawBook);
 
-    console.log(serverBook);
+    // console.log(rawBook);
     console.log (book);
 
     this.bookCache.set(book.id, book);
