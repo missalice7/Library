@@ -25,11 +25,8 @@ export class LinkListComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.links = [{
       href: '',
-      label: 'Lorem Ipsum...'
-    }, {
-      href: '',
-      label: 'Lorem Ipsum...',
-    }];
+      label: 'Loading...'
+    }, ];
 
     const books = await this.bookService.getAllBooks();
     this.links = books.map(book => {
