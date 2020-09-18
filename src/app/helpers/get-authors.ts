@@ -1,14 +1,14 @@
 import { Author } from '../types';
 
-export function getAuthor(arrayAuthors: [Author]): string {
+export function getRawAuthor(arrayAuthors: [Author]): string {
 
     if (arrayAuthors === undefined){
-        const arrAuthors = 'NO!';
+        return 'NO!';
     }
 
 
     else{
-        const arrAuthors = []
+        const arrAuthors = [];
         arrayAuthors.forEach((author) => {
 
             const authorName = author.name;
@@ -17,4 +17,9 @@ export function getAuthor(arrayAuthors: [Author]): string {
 
         return arrAuthors.join(' and ');
     }
+}
+
+
+export function getServerAuthor(arr: [string]): string{
+    return arr.join(' and ');
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
 import { extractId } from '../app/helpers/extract-id';
-import { getAuthor } from './helpers/get-authors';
+import { getRawAuthor, getServerAuthor } from './helpers/get-authors';
 
 
 @Injectable({
@@ -14,10 +14,12 @@ export class BookService {
 
 serverToBook(serverBook: ServerBook): Book {
 
+  const authors: string = getServerAuthor(serverBook.author_name);
+
   return {
     id: serverBook.id,
     title: serverBook.title,
-    authors: serverBook.author_name,
+    authors,
     cover: `http://covers.openlibrary.org/b/OLID/${serverBook.id}-M.jpg`
   };
 }
@@ -25,7 +27,7 @@ serverToBook(serverBook: ServerBook): Book {
 rawToBook(rawBook: RawBook): Book{
 
     const bookID = extractId(rawBook.key);
-    const authors: string = getAuthor(rawBook.authors);
+    const authors: string = getRawAuthor(rawBook.authors);
 
     return {
       id: bookID,

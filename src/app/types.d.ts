@@ -1,7 +1,7 @@
 interface Book {
     id: string,
     title: string,
-    authors: string | Array<string>,
+    authors: string,
     cover: string
 }
 
@@ -13,7 +13,7 @@ interface Author {
 interface ServerBook {
     id: string;
     title: string;
-    author_name: string | string[];
+    author_name: [string];
     cover: string;
 }
   
