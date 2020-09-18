@@ -38,7 +38,7 @@ export class BookService {
 
 
   async getAllBooks(): Promise<Book[]> {
-    const booksResponse = await fetch('https://m24eh.sse.codesandbox.io/search?author=tolkien');
+    const booksResponse = await fetch('https://gnm-book-class.herokuapp.com/search?author=tolkien');
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.toServerBook(book));
 
@@ -53,7 +53,7 @@ export class BookService {
       return this.bookCache.get(id);
     }
 
-    const booksResponse = await fetch(`https://m24eh.sse.codesandbox.io/books?id=${id}&format=json&jscmd=details`);
+    const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/books?id=${id}&format=json&jscmd=details`);
     const rawBook = (await booksResponse.json()).details as RawBook;
     const book = this.toRawBook(rawBook);
 
