@@ -1,25 +1,30 @@
-import { Author } from '../types';
+import { Author, Contributors } from './types';
 
-export function getRawAuthor(arrayAuthors: [Author]): string {
+function getRawAuthor(arrayAuthors: [Author] | [Contributors]): string {
 
     if (arrayAuthors === undefined){
-        return 'NO!';
-    }
+    return 'NO!';
 
+    }
 
     else{
+
         const arrAuthors = [];
+
         arrayAuthors.forEach((author) => {
-
-            const authorName = author.name;
-            arrAuthors.push(authorName);
-        });
-
+        const authorName = author.name;
+        arrAuthors.push(authorName); });
         return arrAuthors.join(' and ');
     }
+
 }
 
-
-export function getServerAuthor(arr: [string]): string{
+function getServerAuthor(arr: [string]): string{
     return arr.join(' and ');
 }
+
+export {
+    getRawAuthor,
+    getServerAuthor
+};
+

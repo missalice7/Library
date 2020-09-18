@@ -27,15 +27,27 @@ serverToBook(serverBook: ServerBook): Book {
 rawToBook(rawBook: RawBook): Book{
 
     const bookID = extractId(rawBook.key);
-    const authors: string = getRawAuthor(rawBook.authors);
 
-    return {
-      id: bookID,
-      title: rawBook.title,
-      authors,
-      cover: rawBook.cover,
-    };
-  }
+    if (rawBook.authors === undefined){
+      const authors = getRawAuthor(rawBook.contributors);
+      return {
+        id: bookID,
+        title: rawBook.title,
+        authors,
+        cover: rawBook.cover,
+      };
+    }
+
+    else{
+      const authors = getRawAuthor(rawBook.authors);
+      return {
+        id: bookID,
+        title: rawBook.title,
+        authors,
+        cover: rawBook.cover,
+      };
+    }
+}
 
 
   async getAllBooks(): Promise<Book[]> {
