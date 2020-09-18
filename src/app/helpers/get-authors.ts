@@ -1,16 +1,20 @@
 import { Author } from '../types';
 
-
-
 export function getAuthor(arrayAuthors: [Author]): string {
 
-    const arrAuthors = [];
+    if (arrayAuthors === undefined){
+        const arrAuthors = 'NO!';
+    }
 
-    arrayAuthors.forEach((author) => {
+
+    else{
+        const arrAuthors = []
+        arrayAuthors.forEach((author) => {
 
             const authorName = author.name;
             arrAuthors.push(authorName);
         });
 
-    return arrAuthors.join(' and ');
+        return arrAuthors.join(' and ');
+    }
 }
