@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
-import { extractId } from '../app/helpers/extract-id';
-import { getRawAuthor, getServerAuthor } from './helpers/get-authors';
+import { extractId, getRawAuthor } from './helpers/';
 
 
 @Injectable({
@@ -14,12 +13,11 @@ export class BookService {
 
 serverToBook(serverBook: ServerBook): Book {
 
-  const authors: string = getServerAuthor(serverBook.author_name);
 
   return {
     id: serverBook.id,
     title: serverBook.title,
-    authors,
+    authors: serverBook.author_name,
     cover: `http://covers.openlibrary.org/b/OLID/${serverBook.id}-M.jpg`
   };
 }
@@ -29,7 +27,7 @@ rawToBook(rawBook: RawBook): Book{
     const bookID = extractId(rawBook.key);
 
     if (rawBook.authors === undefined){
-      const authors = getRawAuthor(rawBook.contributors);
+      const authors: string = getRawAuthor(rawBook.contributors);
       return {
         id: bookID,
         title: rawBook.title,
@@ -39,7 +37,7 @@ rawToBook(rawBook: RawBook): Book{
     }
 
     else{
-      const authors = getRawAuthor(rawBook.authors);
+      const authors: string = getRawAuthor(rawBook.authors);
       return {
         id: bookID,
         title: rawBook.title,
@@ -47,6 +45,7 @@ rawToBook(rawBook: RawBook): Book{
         cover: rawBook.cover,
       };
     }
+
 }
 
 
@@ -62,16 +61,15 @@ rawToBook(rawBook: RawBook): Book{
 
 
   async getBook(id: Book['id']): Promise<Book> {
+
     if (this.bookCache.has(id)) {
-      return this.bookCache.get(id);
+      this.bookCache.get(id);
     }
 
+    console.log(this.bookCache);
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/books?id=${id}&format=json&jscmd=details`);
     const rawBook = (await booksResponse.json()).details as RawBook;
     const book = this.rawToBook(rawBook);
-
-    // console.log(rawBook);
-    // console.log (book);
 
     this.bookCache.set(book.id, book);
 

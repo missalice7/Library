@@ -3,19 +3,18 @@ import {Author, Contributors} from './helpers';
 interface Book {
     id: string,
     title: string,
-    authors: string,
+    authors: string | string[],
     cover: string
 }
-
 
 interface ServerBook {
     id: string;
     title: string;
-    author_name: [string];
+    author_name: string | [string];
     cover: string;
 }
   
-  interface RawBook {
+interface RawBook {
     key: string;
     title: string;
     authors: [Author];

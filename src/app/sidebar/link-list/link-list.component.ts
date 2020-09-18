@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../book.service';
-import { Book } from './../../types';
 
 interface Links {
   label: string;

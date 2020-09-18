@@ -1,5 +1,5 @@
 <ul>
     <li *ngFor= "let book of links">
-        <a [routerLink]='book.href' routerLink="/book/:bookId" routerLinkActive="active">{{book.label}}</a>
+        <a [routerLink]='book.href' routerLinkActive="isActive">{{book.label}}</a>
     </li>
 </ul>

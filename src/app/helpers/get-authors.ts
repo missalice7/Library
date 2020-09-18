@@ -3,7 +3,7 @@ import { Author, Contributors } from './types';
 function getRawAuthor(arrayAuthors: [Author] | [Contributors]): string {
 
     if (arrayAuthors === undefined){
-    return 'NO!';
+    return 'This book has no author definied at OpenLibrary.';
 
     }
 
@@ -19,12 +19,7 @@ function getRawAuthor(arrayAuthors: [Author] | [Contributors]): string {
 
 }
 
-function getServerAuthor(arr: [string]): string{
-    return arr.join(' and ');
-}
-
 export {
-    getRawAuthor,
-    getServerAuthor
+    getRawAuthor
 };
 

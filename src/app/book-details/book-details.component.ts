@@ -27,7 +27,7 @@ export class BookDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(async (paramMap) => {
         const id = paramMap.get('bookId');
         this.activeBook = await this.service.getBook(id);
-        console.log(this.activeBook);
+        // console.log(this.activeBook);
 
       });
 
