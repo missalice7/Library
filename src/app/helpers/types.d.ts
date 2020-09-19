@@ -7,9 +7,15 @@ interface  Contributors{
     role: string;
 }
 
+interface Description {
+    type: string;
+    value: string;
+}
+
 export{
     Contributors,
-    Author
+    Author,
+    Description
 }
 
 

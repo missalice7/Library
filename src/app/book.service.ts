@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
-import { extractId, getRawAuthor } from './helpers/';
+import { extractId, getRawAuthor, getDescription } from './helpers/';
 
 
 @Injectable({
@@ -16,9 +16,7 @@ serverToBook(serverBook: ServerBook): Book {
 
   return {
     id: serverBook.id,
-    title: serverBook.title,
-    authors: serverBook.author_name,
-    cover: `http://covers.openlibrary.org/b/OLID/${serverBook.id}-M.jpg`
+    title: serverBook.title
   };
 }
 
@@ -28,21 +26,26 @@ rawToBook(rawBook: RawBook): Book{
 
     if (rawBook.authors === undefined){
       const authors: string = getRawAuthor(rawBook.contributors);
+      const description: string = getDescription(rawBook.description);
       return {
         id: bookID,
         title: rawBook.title,
         authors,
         cover: rawBook.cover,
+        description,
       };
     }
 
     else{
       const authors: string = getRawAuthor(rawBook.authors);
+      const description: string = getDescription(rawBook.description);
+
       return {
         id: bookID,
         title: rawBook.title,
         authors,
         cover: rawBook.cover,
+        description,
       };
     }
 
@@ -66,7 +69,7 @@ rawToBook(rawBook: RawBook): Book{
       this.bookCache.get(id);
     }
 
-    console.log(this.bookCache);
+    // console.log(this.bookCache);
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/books?id=${id}&format=json&jscmd=details`);
     const rawBook = (await booksResponse.json()).details as RawBook;
     const book = this.rawToBook(rawBook);
