@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
-import { extractId, getRawAuthor, getDescription } from './helpers/';
+import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpers/';
 
 
 @Injectable({
@@ -12,7 +12,6 @@ export class BookService {
   constructor() { }
 
 serverToBook(serverBook: ServerBook): Book {
-
 
   return {
     id: serverBook.id,
@@ -27,24 +26,31 @@ rawToBook(rawBook: RawBook): Book{
     if (rawBook.authors === undefined){
       const authors: string = getRawAuthor(rawBook.contributors);
       const description: string = getDescription(rawBook.description);
+      const publishDate: string = getPublishDate(rawBook.publish_date);
+
+
       return {
         id: bookID,
         title: rawBook.title,
         authors,
         cover: rawBook.cover,
         description,
+        publish_date: publishDate
       };
     }
 
     else{
       const authors: string = getRawAuthor(rawBook.authors);
       const description: string = getDescription(rawBook.description);
+      const publishDate: string = getPublishDate(rawBook.publish_date);
+
       return {
         id: bookID,
         title: rawBook.title,
         authors,
         cover: rawBook.cover,
         description,
+        publish_date: publishDate
       };
     }
 

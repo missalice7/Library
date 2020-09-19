@@ -1,4 +1,4 @@
-import {Author, Contributors, Description } from './helpers';
+import {Author, Contributors} from './helpers';
 
 interface Book {
     id: string;
@@ -6,6 +6,7 @@ interface Book {
     authors?: string | string[];
     cover?: string;
     description?: string;
+    publish_date?: string;
 }
 
 interface ServerBook {
@@ -21,7 +22,8 @@ interface RawBook {
     authors: Author[];
     contributors?: Contributors[]
     cover: string;
-    description: string
+    description: string;
+    publish_date: string;
 }
 
 export {

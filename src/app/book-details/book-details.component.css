@@ -4,3 +4,10 @@
     background-color: aliceblue;
     float: left;
 }
+
+.bold{
+    font-weight: bold;
+}
+.none{
+    display: none;
+}

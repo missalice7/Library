@@ -12,7 +12,7 @@ function isDescription(param: string | Description): param is Description{
 function getDescription(description: string | Description): string {
 
     if (description === undefined){
-        return 'This book has no description defined at OpenLibrary.';
+        return 'Not included.';
 
     }
 

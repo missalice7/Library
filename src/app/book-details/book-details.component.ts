@@ -22,7 +22,8 @@ export class BookDetailsComponent implements OnInit {
       title: 'Loading...',
       authors: 'Loading...',
       cover: 'Loading...',
-      description: 'Loading...'
+      description: 'Loading...',
+      publish_date: 'Loading...'
     };
 
     this.route.paramMap.subscribe(async (paramMap) => {

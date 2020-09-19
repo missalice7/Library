@@ -3,6 +3,11 @@
     <img [src]='activeBook.cover'>
     <p>{{ activeBook.authors }}</p>
     <p>{{ activeBook.description }}</p>
+    <p><span class = 'bold'
+        [ngClass] = "{
+            'none': activeBook.publish_date  === 'Not included.'
+        }"
+        >Publish date:</span> {{ activeBook.publish_date }}</p>
 </div>
 
 
