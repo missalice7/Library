@@ -21,7 +21,7 @@ interface RawBook {
     authors: Author[];
     contributors?: Contributors[]
     cover: string;
-    description: string | [Description]
+    description: string
 }
 
 export {

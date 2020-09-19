@@ -39,6 +39,7 @@ rawToBook(rawBook: RawBook): Book{
     else{
       const authors: string = getRawAuthor(rawBook.authors);
       const description: string = getDescription(rawBook.description);
+      console.log (description);
 
       return {
         id: bookID,
