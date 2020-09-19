@@ -1,6 +1,15 @@
-.book-details{
-    width: 75%;
+.homepage{
+    width: 85%;
     height: 100vh;
     background-color: aliceblue;
     float: left;
+    background-image: url('../../assets/librarybw.jpg');
+    background-size: cover;
+}
+
+.home-title{
+    font-size: 150px;
+    text-align: center;
+    font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,0.5)
 }
