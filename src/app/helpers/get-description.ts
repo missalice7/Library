@@ -17,7 +17,9 @@ function getDescription(description: string | Description): string {
     }
 
     if (isString(description)){
-            return description;
+            const regex = /<\/?i>/gi;
+            const newdescription = description.replace(regex, ' ');
+            return newdescription;
         }
 
     if (isDescription(description)) {
