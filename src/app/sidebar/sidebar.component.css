@@ -1,0 +1,49 @@
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    background-color: black;
+    float: left;
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+    background-color: rgba(231, 208, 187, 1);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #504252;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #504252;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #504252;
+}
+::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  border: 0px none #ffffff;
+  border-radius: 35px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #d9d9d9;
+}
+::-webkit-scrollbar-track:active {
+  background: #d9d9d9;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.hp-btn{
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
+}
