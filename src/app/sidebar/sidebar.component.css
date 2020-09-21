@@ -1,13 +1,11 @@
 .sidebar{
     width: 20%;
     height: 100vh;
-    background-color: black;
     float: left;
     overflow-x: hidden; 
     overflow-y: scroll; 
     background-color: rgba(231, 208, 187, 1);
 }
-
 
 ::-webkit-scrollbar {
   width: 11px;
@@ -43,19 +41,3 @@
   background: transparent;
 }
 
-.sidebar-mobile{
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
-
-@media only screen and (max-width: 1024px) {
-    .sidebar{
-        display: none;
-    }
-    .sidebar-mobile{
-        display: block;
-        width: 100%;
-        overflow: auto;
-    }
-  }

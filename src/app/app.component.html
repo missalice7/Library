@@ -1,3 +1,10 @@
-<app-sidebar class="sidebar"></app-sidebar>
-<router-outlet></router-outlet>
+<app-list-btn (opensidebar)="openSidebar($event)"></app-list-btn>
 
+<app-sidebar class="sidebar-desktop"></app-sidebar>
+
+<app-sidebar-mobile
+    [ngClass]="sidebarMobileStatus"
+></app-sidebar-mobile>
+
+    
+<router-outlet></router-outlet>

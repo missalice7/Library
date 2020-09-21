@@ -8,6 +8,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ListBtnComponent implements OnInit {
   @Output() opensidebar = new EventEmitter<void>();
 
+  format = 'sidebar-mobile';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +17,6 @@ export class ListBtnComponent implements OnInit {
 
 
   openSidebar(): void {
-    console.log('button was clicked');
     this.opensidebar.emit();
   }
 

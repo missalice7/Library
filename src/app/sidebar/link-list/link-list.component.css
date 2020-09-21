@@ -1,26 +1,32 @@
 ul{
-    
     margin-left: 0;
     padding: 5px 5px;
-
 }
+
 li{
     list-style-type: none;
     padding: 5px 10px;
-    
-
 }
 
 li::before{
     content: "\00BB "; 
-    padding-right: 5px;
-    
+    padding-right: 5px; 
 }
 
 a{
     text-decoration: none;
     color: black;
 }
+
 a:hover{
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+    li{
+        text-align: center;
+    }
+    li::before{
+        content: ""; 
+    }
 }

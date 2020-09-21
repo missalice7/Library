@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,15 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  statusClass = 'sidebar';
+
   constructor() { }
 
   ngOnInit(): void {
-  }
 
-  async openSidebar(): Promise<void> {
-    console.log('wut?');
-    const lalalal = this.statusClass = 'sidebar-mobile';
 
   }
 

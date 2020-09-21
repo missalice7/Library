@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from './../types';
 import { BookService } from './../book.service';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-book-details',

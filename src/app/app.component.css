@@ -1,2 +1,16 @@
-
-
+.sidebar-mobile{
+    display: none;
+}
+  
+  @media only screen and (max-width: 1024px) {
+      .sidebar-desktop{
+          display: none;
+      }
+      .sidebar-mobile{
+          display: none;
+      }
+      .sidebar-show{
+          display: block;
+      }
+      
+    }

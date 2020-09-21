@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Library';
+
+  sidebarMobileStatus = 'sidebar-mobile';
+
+  openSidebar(): void {
+    console.log('working!');
+    this.sidebarMobileStatus = 'sidebar-show';
+  }
+
+
 }

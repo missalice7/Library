@@ -5,6 +5,9 @@ button{
     margin: 5px 5px 0px 0px;
     float: right;
     display: none;
+    z-index: 2;
+    position: fixed;
+    right: 0px;
 }
 
 button:focus{
