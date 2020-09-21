@@ -1,6 +1,10 @@
 .sidebar-mobile{
     display: none;
 }
+
+.display-show{
+    display: block;
+}
   
   @media only screen and (max-width: 1024px) {
       .sidebar-desktop{
@@ -9,8 +13,4 @@
       .sidebar-mobile{
           display: none;
       }
-      .sidebar-show{
-          display: block;
-      }
-      
-    }
+}

@@ -16,6 +16,7 @@ li::before{
 a{
     text-decoration: none;
     color: black;
+    font-size: larger;
 }
 
 a:hover{
@@ -25,6 +26,7 @@ a:hover{
 @media only screen and (max-width: 1024px) {
     li{
         text-align: center;
+
     }
     li::before{
         content: ""; 

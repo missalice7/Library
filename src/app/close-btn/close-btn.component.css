@@ -1,0 +1,20 @@
+button{
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 50px;
+    border: none;
+    margin: 5px 5px 0px 0px;
+    float: right;
+    z-index: 20;
+    position: fixed;
+    right: 0px;
+}
+
+button:focus{
+    outline: white auto 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    button{
+        font-size: 25px;
+    }
+}

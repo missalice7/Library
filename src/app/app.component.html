@@ -1,10 +1,14 @@
-<app-list-btn (opensidebar)="openSidebar($event)"></app-list-btn>
+<app-list-btn (opensidebar)="openSidebar()"></app-list-btn>
 
 <app-sidebar class="sidebar-desktop"></app-sidebar>
 
+<app-close-btn 
+    [ngClass]="sidebarMobileStatus"
+    (closesidebar)="closeSidebar()"
+></app-close-btn> 
+
 <app-sidebar-mobile
+    
     [ngClass]="sidebarMobileStatus"
 ></app-sidebar-mobile>
-
-    
 <router-outlet></router-outlet>

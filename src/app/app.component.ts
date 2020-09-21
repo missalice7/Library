@@ -9,10 +9,17 @@ export class AppComponent {
   title = 'Library';
 
   sidebarMobileStatus = 'sidebar-mobile';
+  closeBtnStatus = 'sidebar-mobile';
 
   openSidebar(): void {
     console.log('working!');
-    this.sidebarMobileStatus = 'sidebar-show';
+    this.sidebarMobileStatus = 'display-show';
+    this.closeBtnStatus = 'display-show';
+  }
+
+  closeSidebar(): void {
+    this.sidebarMobileStatus = 'sidebar-mobile';
+    this.closeBtnStatus = 'sidebar-mobile';
   }
 
 
