@@ -8,18 +8,6 @@
     
 }
 
-button{
-    background-color: rgba(255, 255, 255, 0.4);
-    font-size: 50px;
-    border: none;
-    margin: 5px 5px 0px 0px;
-    float: right;
-}
-
-button:focus{
-    outline: white auto 5px;
-}
-
 .home-title{
     text-align: center;
     font-size: 150px;

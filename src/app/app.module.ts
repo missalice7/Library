@@ -8,6 +8,7 @@ import { LinkListComponent } from './sidebar/link-list/link-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomepageBtnComponent } from './sidebar/homepage-btn/homepage-btn.component';
+import { ListBtnComponent } from './list-btn/list-btn.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomepageBtnComponent } from './sidebar/homepage-btn/homepage-btn.compon
     BookDetailsComponent,
     HomepageComponent,
     HomepageBtnComponent,
+    ListBtnComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@
     background-color: rgba(231, 208, 187, 1);
 }
 
+
 ::-webkit-scrollbar {
   width: 11px;
   height: 11px;
@@ -42,8 +43,19 @@
   background: transparent;
 }
 
+.sidebar-mobile{
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
 @media only screen and (max-width: 1024px) {
     .sidebar{
         display: none;
+    }
+    .sidebar-mobile{
+        display: block;
+        width: 100%;
+        overflow: auto;
     }
   }

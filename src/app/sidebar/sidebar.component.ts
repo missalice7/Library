@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  statusClass = 'sidebar';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  async openSidebar(): Promise<void> {
+    console.log('wut?');
+    const lalalal = this.statusClass = 'sidebar-mobile';
+
   }
 
 }

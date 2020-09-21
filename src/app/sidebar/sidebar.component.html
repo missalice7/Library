@@ -1,4 +1,8 @@
-<div class="sidebar">
+<div 
+    (opensidebar)="openSidebar()"
+    [ngClass]="statusClass"
+    
+    >
     <app-homepage-btn></app-homepage-btn>
     <app-link-list></app-link-list>
 </div>
