@@ -41,9 +41,9 @@
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-.hp-btn{
-    border-bottom: 1px solid black;
-    text-align: center;
-    padding: 15px;
-    font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
-}
+
+@media only screen and (max-width: 1024px) {
+    .sidebar{
+        display: none;
+    }
+  }

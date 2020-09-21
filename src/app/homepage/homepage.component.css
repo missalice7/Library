@@ -5,11 +5,80 @@
     float: left;
     background-image: url('../../assets/librarybw.jpg');
     background-size: cover;
+    
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 50px;
+    border: none;
+    margin: 5px 5px 0px 0px;
+    float: right;
+}
+
+button:focus{
+    outline: white auto 5px;
 }
 
 .home-title{
-    font-size: 150px;
     text-align: center;
+    font-size: 150px;
     font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
-    color: rgba(0,0,0,0.5)
+    color: rgba(0,0,0,0.5);
+    margin: 10px 0px;
 }
+
+.subtitle{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
+
+}
+
+.ol-link{
+    text-decoration: none;
+    color: rgba(0,0,0,0.6);
+    
+}
+
+    /* Ipad Pro */
+@media only screen and (max-width: 1024px) {
+    .homepage{
+        width: 100%;
+        background-image: url('../../assets/librarybwside.jpg');
+    }
+    .home-title{
+        font-size: 125px;
+        margin-top: 50px;
+    }
+    .subtitle{
+        font-size: 50px;
+    }
+  }
+  /* Iphone X */
+  @media only screen and (max-width: 600px) {
+    button{
+        font-size: 25px;
+    }
+    .home-title{
+        font-size: 75px;
+        margin-top: 10px;
+    }
+    .subtitle{
+        font-size: 30px;
+        width: 90%;
+        margin: 3px auto;
+    }
+  }
+  /* Iphone 5 */
+  @media only screen and (max-width: 350px) {
+    .home-title{
+        font-size: 50px;
+        margin-top: 10px;
+    }
+    .subtitle{
+        font-size: 20px;
+        width: 90%;
+        margin: 10px auto;
+    }
+  }
