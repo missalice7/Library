@@ -7,7 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LinkListComponent } from './link-list/link-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HomepageBtnComponent } from './sidebar/homepage-btn/homepage-btn.component';
+import { HomepageBtnComponent } from './homepage-btn/homepage-btn.component';
 import { ListBtnComponent } from './list-btn/list-btn.component';
 import { SidebarMobileComponent } from './sidebar-mobile/sidebar-mobile.component';
 import { CloseBtnComponent } from './close-btn/close-btn.component';

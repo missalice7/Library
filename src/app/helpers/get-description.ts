@@ -14,7 +14,7 @@ function getDescription(description: string | Description): string {
     const regex = /<\/?i>/gi;
 
     if (description === undefined){
-        return 'Not included.';
+        return 'Description not included.';
 
     }
 

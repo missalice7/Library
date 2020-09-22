@@ -2,12 +2,18 @@
     <div></div><div></div><div></div><div></div>
 </div>
 
-<div [ngClass] = "loaded">
-    <h1>{{ activeBook.title }}</h1>
-    <img [src]='activeBook.cover'>
-    <p>{{ activeBook.authors }}</p>
-    <p>{{ activeBook.description }}</p>
-    <p><span class='bold'>Publish date:</span> {{ activeBook.publish_date }}</p>
+<div [ngClass]="loaded">
+    <div class="book-cover">
+        <img [src]='activeBook.cover'>
+    </div>
+    <div class="book-essentials">
+        <h2 class="book-title">{{ activeBook.title }}</h2>
+        <p><span class="bold">By:</span> {{ activeBook.authors }}</p>
+        <p><span class="bold">Publish date:</span> {{ activeBook.publish_date }}</p>       
+    </div>  
+    <div class="book-description">
+        <p>{{ activeBook.description }}</p> 
+    </div>
 </div>
 
 
