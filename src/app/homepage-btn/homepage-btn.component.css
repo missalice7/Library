@@ -20,5 +20,6 @@ a:hover{
 @media only screen and (max-width: 1024px) {
     .hp-btn{
         font-size: 25px;
+        height: 58px;
     }
   }

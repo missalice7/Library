@@ -25,10 +25,6 @@ img{
     padding: 10px;
 }
 
-.book-essentials{
-    float: left;
-}
-
 .book-title{
     font-family: Georgia,"Palatino Linotype","Book Antiqua",serif;
     font-weight: 600;
@@ -47,9 +43,10 @@ img{
     .book-details{
         width: 100%;
         height: 100vh;
+        margin-top: 50px;
     }
     .book-cover{
-        width: 80%;
+        width: 90%;
         display: flex;
         justify-content: center;
     }
