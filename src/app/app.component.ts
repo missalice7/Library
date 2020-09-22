@@ -12,7 +12,6 @@ export class AppComponent {
   closeBtnStatus = 'sidebar-mobile';
 
   openSidebar(): void {
-    console.log('working!');
     this.sidebarMobileStatus = 'display-show';
     this.closeBtnStatus = 'display-show';
   }

@@ -11,6 +11,8 @@ import { HomepageBtnComponent } from './sidebar/homepage-btn/homepage-btn.compon
 import { ListBtnComponent } from './list-btn/list-btn.component';
 import { SidebarMobileComponent } from './sidebar-mobile/sidebar-mobile.component';
 import { CloseBtnComponent } from './close-btn/close-btn.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { CloseBtnComponent } from './close-btn/close-btn.component';
     ListBtnComponent,
     SidebarMobileComponent,
     CloseBtnComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

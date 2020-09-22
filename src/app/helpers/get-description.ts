@@ -11,20 +11,23 @@ function isDescription(param: string | Description): param is Description{
 
 function getDescription(description: string | Description): string {
 
+    const regex = /<\/?i>/gi;
+
     if (description === undefined){
         return 'Not included.';
 
     }
 
     if (isString(description)){
-            const regex = /<\/?i>/gi;
+
             const newdescription = description.replace(regex, ' ');
             return newdescription;
         }
 
     if (isDescription(description)) {
-        const desc = description.value;
-        return desc;
+        const descriptionValue = description.value;
+        const newdescription = descriptionValue.replace(regex, ' ');
+        return newdescription;
     }
 
 }

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
-import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpers/';
+import { extractId, getRawAuthor, getDescription, getPublishDate, Author } from './helpers/';
 
 
 @Injectable({
@@ -8,6 +8,8 @@ import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpe
 })
 export class BookService {
   private bookCache: Map<Book['id'], Book> = new Map();
+
+  author = 'tolkien';
 
   constructor() { }
 
@@ -58,7 +60,9 @@ rawToBook(rawBook: RawBook): Book{
 
 
   async getAllBooks(): Promise<Book[]> {
-    const booksResponse = await fetch('https://gnm-book-class.herokuapp.com/search?author=tolkien');
+
+
+    const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}`);
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.serverToBook(book));
 
@@ -74,7 +78,6 @@ rawToBook(rawBook: RawBook): Book{
       this.bookCache.get(id);
     }
 
-    // console.log(this.bookCache);
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/books?id=${id}&format=json&jscmd=details`);
     const rawBook = (await booksResponse.json()).details as RawBook;
     const book = this.rawToBook(rawBook);
