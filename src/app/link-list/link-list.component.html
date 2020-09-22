@@ -1,3 +1,6 @@
+<div [ngClass]="loader">
+    <div></div><div></div><div></div><div></div>
+</div>
 <ul>
     <li *ngFor= "let book of links">
         <a [routerLink]='book.href' routerLinkActive="isActive">{{book.label}}</a>

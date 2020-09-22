@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { LinkListComponent } from './sidebar/link-list/link-list.component';
+import { LinkListComponent } from './link-list/link-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomepageBtnComponent } from './sidebar/homepage-btn/homepage-btn.component';
