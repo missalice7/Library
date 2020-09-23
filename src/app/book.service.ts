@@ -1,6 +1,8 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
-import { extractId, getRawAuthor, getDescription, getPublishDate, Author } from './helpers/';
+import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpers/';
+import { Subscription } from 'rxjs';
+import { SearchAuthorService } from './search-author.service';
 
 
 @Injectable({
@@ -11,9 +13,30 @@ export class BookService {
 
   author = 'tolkien';
 
-  constructor() { }
+  message: string;
+  subscription: Subscription;
 
-serverToBook(serverBook: ServerBook): Book {
+  constructor(private messageService: SearchAuthorService) {
+
+    this.subscription = this.messageService.getMessage().subscribe(message => {
+      if (message) {
+        console.log(`Hey this is the new author: ${message}`);
+        this.author = message;
+      } else {
+        // clear messages when empty message received
+        this.message = 'Not Working';
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
+
+
+
+  serverToBook(serverBook: ServerBook): Book {
 
   return {
     id: serverBook.id,
@@ -21,7 +44,7 @@ serverToBook(serverBook: ServerBook): Book {
   };
 }
 
-rawToBook(rawBook: RawBook): Book{
+  rawToBook(rawBook: RawBook): Book{
 
     const bookID = extractId(rawBook.key);
 

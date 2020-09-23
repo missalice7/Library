@@ -1,5 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, } from '@angular/core';
+import {  NgForm } from '@angular/forms';
+import { SearchAuthorService } from './../search-author.service';
+
+
 
 @Component({
   selector: 'app-search-bar',
@@ -8,16 +11,15 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchBarComponent implements OnInit {
 
-  @Output() author = new EventEmitter<string>();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private messageService: SearchAuthorService) { }
 
   getAuthor(f: NgForm): void {
-    console.log(f.value);
-    this.author.emit(f.value);
+    this.messageService.sendMessage(f.value.author);
+    // console.log(f.value.author);
   }
+
+  ngOnInit(): void {
+}
 
 }

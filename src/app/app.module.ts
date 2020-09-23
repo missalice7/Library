@@ -12,7 +12,7 @@ import { ListBtnComponent } from './list-btn/list-btn.component';
 import { SidebarMobileComponent } from './sidebar-mobile/sidebar-mobile.component';
 import { CloseBtnComponent } from './close-btn/close-btn.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
