@@ -3,6 +3,7 @@ import { Book, RawBook, ServerBook } from './types';
 import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpers/';
 import { Subscription } from 'rxjs';
 import { SearchAuthorService } from './search-author.service';
+import { LocalStorageService } from './local-storage.service';
 
 
 @Injectable({
@@ -11,12 +12,14 @@ import { SearchAuthorService } from './search-author.service';
 export class BookService {
   private bookCache: Map<Book['id'], Book> = new Map();
 
-  author = 'tolkien';
+  author: string;
 
   message: string;
   subscription: Subscription;
 
-  constructor(private messageService: SearchAuthorService) {
+  constructor(
+    private messageService: SearchAuthorService,
+    private localStorageService: LocalStorageService) {
 
     this.subscription = this.messageService.getMessage().subscribe(message => {
       if (message) {
@@ -28,6 +31,7 @@ export class BookService {
       }
     });
   }
+
 
   ngOnDestroy(): void {
     // unsubscribe to ensure no memory leaks
@@ -84,7 +88,8 @@ export class BookService {
 
   async getAllBooks(): Promise<Book[]> {
 
-
+    this.author = this.localStorageService.checkLocalStorage();
+    console.log(`getAllBook has ${this.author}`);
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}`);
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.serverToBook(book));

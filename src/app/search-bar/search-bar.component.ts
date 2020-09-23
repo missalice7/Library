@@ -1,5 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
-import {  NgForm } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output, } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { LocalStorageService } from '../local-storage.service';
 import { SearchAuthorService } from './../search-author.service';
 
 
@@ -11,11 +12,17 @@ import { SearchAuthorService } from './../search-author.service';
 })
 export class SearchBarComponent implements OnInit {
 
+  @Output() submitAuthor = new EventEmitter<void>();
 
-  constructor(private messageService: SearchAuthorService) { }
+  constructor(
+    private messageService: SearchAuthorService,
+    private localStorageService: LocalStorageService
+    ) { }
 
   getAuthor(f: NgForm): void {
+    this.localStorageService.newLocalStorage(f.value.author);
     this.messageService.sendMessage(f.value.author);
+    this.submitAuthor.emit();
     // console.log(f.value.author);
   }
 

@@ -15,8 +15,6 @@ interface Links {
   ]
 })
 
-
-
 export class LinkListComponent implements OnInit {
 
   links: Links[];
