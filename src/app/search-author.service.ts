@@ -10,15 +10,15 @@ export class SearchAuthorService {
 
   private subject = new Subject<string>();
 
-    sendMessage(message: string): void {
-        this.subject.next(message);
+    sendAuthor(author: string): void {
+        this.subject.next(author);
     }
 
-    clearMessages(): void {
+    clearAuthor(): void {
         this.subject.next();
     }
 
-    getMessage(): Observable<any> {
+    getAuthor(): Observable<any> {
         return this.subject.asObservable();
     }
 

@@ -15,13 +15,13 @@ export class SearchBarComponent implements OnInit {
   @Output() submitAuthor = new EventEmitter<void>();
 
   constructor(
-    private messageService: SearchAuthorService,
+    private searchService: SearchAuthorService,
     private localStorageService: LocalStorageService
     ) { }
 
   getAuthor(f: NgForm): void {
     this.localStorageService.newLocalStorage(f.value.author);
-    this.messageService.sendMessage(f.value.author);
+    this.searchService.sendAuthor(f.value.author);
     this.submitAuthor.emit();
     // console.log(f.value.author);
   }

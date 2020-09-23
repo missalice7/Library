@@ -14,20 +14,20 @@ export class BookService implements OnDestroy {
 
   author = 'tolkien';
 
-  message: string;
+  newAuthor: string;
   subscription: Subscription;
 
   constructor(
-    private messageService: SearchAuthorService,
+    private searchService: SearchAuthorService,
     private localStorageService: LocalStorageService) {
 
-    this.subscription = this.messageService.getMessage().subscribe(message => {
-      if (message) {
-        console.log(`Hey this is the new author: ${message}`);
-        this.author = message;
+    this.subscription = this.searchService.getAuthor().subscribe(newAuthor => {
+      if (newAuthor) {
+        console.log(`Hey this is the new author: ${newAuthor}`);
+        this.author = newAuthor;
       } else {
         // clear messages when empty message received
-        this.message = 'Not Working';
+        this.newAuthor = 'Not Working';
       }
     });
   }
