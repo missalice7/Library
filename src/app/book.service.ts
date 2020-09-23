@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Book, RawBook, ServerBook } from './types';
 import { extractId, getRawAuthor, getDescription, getPublishDate } from './helpers/';
 import { Subscription } from 'rxjs';
@@ -9,10 +9,10 @@ import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class BookService implements OnDestroy {
   private bookCache: Map<Book['id'], Book> = new Map();
 
-  author: string;
+  author = 'tolkien';
 
   message: string;
   subscription: Subscription;
@@ -48,48 +48,37 @@ export class BookService {
   };
 }
 
-  rawToBook(rawBook: RawBook): Book{
 
-    const bookID = extractId(rawBook.key);
+rawToBook(rawBook: RawBook): Book{
 
-    if (rawBook.authors === undefined){
-      const authors: string = getRawAuthor(rawBook.contributors);
-      const description: string = getDescription(rawBook.description);
-      const publishDate: string = getPublishDate(rawBook.publish_date);
+  const bookID = extractId(rawBook.key);
+  let authors: string;
+  const description: string = getDescription(rawBook.description);
+  const publishDate: string = getPublishDate(rawBook.publish_date);
 
+  if (rawBook.authors === undefined){
+    authors = getRawAuthor(rawBook.contributors);
+  }
 
-      return {
-        id: bookID,
-        title: rawBook.title,
-        authors,
-        cover: rawBook.cover,
-        description,
-        publish_date: publishDate
-      };
-    }
+  if (rawBook.contributors === undefined){
+      authors = getRawAuthor(rawBook.authors);
+  }
 
-    else{
-      const authors: string = getRawAuthor(rawBook.authors);
-      const description: string = getDescription(rawBook.description);
-      const publishDate: string = getPublishDate(rawBook.publish_date);
-
-      return {
-        id: bookID,
-        title: rawBook.title,
-        authors,
-        cover: rawBook.cover,
-        description,
-        publish_date: publishDate
-      };
-    }
+  return {
+    id: bookID,
+    title: rawBook.title,
+    authors,
+    cover: rawBook.cover,
+    description,
+    publish_date: publishDate
+  };
 
 }
 
 
-  async getAllBooks(): Promise<Book[]> {
+async getAllBooks(): Promise<Book[]> {
 
-    this.author = this.localStorageService.checkLocalStorage();
-    console.log(`getAllBook has ${this.author}`);
+    await fetch(this.author = this.localStorageService.checkLocalStorage());
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}`);
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.serverToBook(book));
@@ -100,7 +89,7 @@ export class BookService {
   }
 
 
-  async getBook(id: Book['id']): Promise<Book> {
+async getBook(id: Book['id']): Promise<Book> {
 
     if (this.bookCache.has(id)) {
       this.bookCache.get(id);
