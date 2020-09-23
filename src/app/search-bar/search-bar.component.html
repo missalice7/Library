@@ -1,4 +1,4 @@
 <form #f="ngForm" (ngSubmit)="getAuthor(f)" novalidate >
-    <input name="author" ngModel required #first="ngModel">
+    <input required minlength="4" name="author" ngModel #first="ngModel">
     <button type="submit">Submit</button>
 </form>

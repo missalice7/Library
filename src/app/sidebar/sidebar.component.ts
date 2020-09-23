@@ -10,6 +10,10 @@ export class SidebarComponent implements OnInit {
 
   constructor() { }
 
+  getAuthor(): void{
+    window.location.reload();
+  }
+  
   ngOnInit(): void {
 
 

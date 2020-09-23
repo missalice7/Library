@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchAuthorService {
 
-  constructor(private localStorageService: LocalStorageService) { }
+  constructor() { }
 
   private subject = new Subject<string>();
 
