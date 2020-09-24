@@ -12,7 +12,6 @@ import { SearchAuthorService } from './../search-author.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  @Output() submitAuthor = new EventEmitter<void>();
 
   constructor(
     private searchService: SearchAuthorService,
@@ -22,9 +21,11 @@ export class SearchBarComponent implements OnInit {
   getAuthor(f: NgForm): void {
     this.localStorageService.newLocalStorage(f.value.author);
     this.searchService.sendAuthor(f.value.author);
-    this.submitAuthor.emit();
-    // console.log(f.value.author);
+    this.searchService.reloadBookList(true);
   }
+  clearMessages(): void {
+    this.searchService.clearMessages();
+}
 
   ngOnInit(): void {
 }

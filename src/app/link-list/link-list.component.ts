@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { BookService } from '../book.service';
+import { SearchAuthorService } from '../search-author.service';
 
 interface Links {
   label: string;
@@ -19,8 +21,16 @@ export class LinkListComponent implements OnInit {
 
   links: Links[];
   loader: string;
+  subscription: Subscription;
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private searchService: SearchAuthorService
+    ) {
+      this.subscription = this.searchService.startReload().subscribe(() => {
+        this.ngOnInit();
+      });
+    }
 
 
   async ngOnInit(): Promise<void> {

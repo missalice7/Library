@@ -8,18 +8,26 @@ export class SearchAuthorService {
 
   constructor() { }
 
-  private subject = new Subject<string>();
+  private subject = new Subject<any>();
 
     sendAuthor(author: string): void {
         this.subject.next(author);
     }
 
-    clearAuthor(): void {
+    clearMessages(): void {
         this.subject.next();
     }
 
     getAuthor(): Observable<any> {
         return this.subject.asObservable();
     }
+
+
+    reloadBookList(newlist: boolean): void{
+      this.subject.next(newlist);
+    }
+    startReload(): Observable<any> {
+      return this.subject.asObservable();
+  }
 
 }

@@ -10,6 +10,8 @@ export class SidebarComponent implements OnInit {
 
   constructor() { }
 
+  message: any;
+
   getAuthor(): void{
     window.location.reload();
   }
