@@ -4,3 +4,24 @@
     justify-content: center;
     display: flex;
 }
+[type=text]:focus{
+    outline: #504252;
+}
+
+button {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background: none;
+    color: black;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+  }
+
+button:focus{
+    outline: #504252;
+    color: #504252;
+    border-radius: 10px;
+}

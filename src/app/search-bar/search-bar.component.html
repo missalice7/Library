@@ -1,6 +1,6 @@
 <div class="search-form">
     <form #f="ngForm" (ngSubmit)="getAuthor(f)" novalidate >
-        <input required minlength="4" name="author" ngModel #first="ngModel" placeholder="Search new author">
-        <button type="submit">Submit</button>
+        <input type='text' required name="author" ngModel #first="ngModel" placeholder="Search new author">
+        <button type="submit"><fa-icon [icon]="faSearch"></fa-icon></button>
     </form>
 </div>

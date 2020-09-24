@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class CloseBtnComponent implements OnInit {
 
-  @Output() closesidebar = new EventEmitter<void>()
+  @Output() closesidebar = new EventEmitter<void>();
 
   constructor() { }
 

@@ -13,11 +13,10 @@ export class LocalStorageService {
       localStorage.setItem('author', JSON.stringify('tolkien'));
       const author = JSON.parse(localStorage.getItem('author'));
       return author;
-    }else{
+    } else{
       const author = JSON.parse(localStorage.getItem('author'));
       return author;
     }
-
   }
 
   newLocalStorage(newauthor: string): void{

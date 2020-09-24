@@ -8,7 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ListBtnComponent implements OnInit {
   @Output() opensidebar = new EventEmitter<void>();
 
-  format = 'sidebar-mobile';
 
   constructor() { }
 

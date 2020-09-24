@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LocalStorageService } from '../local-storage.service';
 import { SearchAuthorService } from './../search-author.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -12,6 +13,7 @@ import { SearchAuthorService } from './../search-author.service';
 })
 export class SearchBarComponent implements OnInit {
 
+  faSearch = faSearch;
 
   constructor(
     private searchService: SearchAuthorService,

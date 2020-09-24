@@ -13,7 +13,6 @@ export class BookService implements OnDestroy {
   private bookCache: Map<Book['id'], Book> = new Map();
 
   author = 'tolkien';
-
   newAuthor: string;
   subscription: Subscription;
 
@@ -23,10 +22,8 @@ export class BookService implements OnDestroy {
 
     this.subscription = this.searchService.getAuthor().subscribe(newAuthor => {
       if (newAuthor) {
-        console.log(`Hey this is the new author: ${newAuthor}`);
         this.author = newAuthor;
       } else {
-        // clear messages when empty message received
         this.newAuthor = 'Not Working';
       }
     });
@@ -34,7 +31,6 @@ export class BookService implements OnDestroy {
 
 
   ngOnDestroy(): void {
-    // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
   }
 
@@ -52,16 +48,15 @@ export class BookService implements OnDestroy {
 rawToBook(rawBook: RawBook): Book{
 
   const bookID = extractId(rawBook.key);
-  let authors: string;
   const description: string = getDescription(rawBook.description);
   const publishDate: string = getPublishDate(rawBook.publish_date);
+  let authors: string;
 
   if (rawBook.authors === undefined){
     authors = getRawAuthor(rawBook.contributors);
   }
-
   if (rawBook.contributors === undefined){
-      authors = getRawAuthor(rawBook.authors);
+    authors = getRawAuthor(rawBook.authors);
   }
 
   return {
@@ -72,16 +67,17 @@ rawToBook(rawBook: RawBook): Book{
     description,
     publish_date: publishDate
   };
-
 }
 
 
 async getAllBooks(): Promise<Book[]> {
 
     await fetch(this.author = this.localStorageService.checkLocalStorage());
+
     if (this.author === undefined){
       this.author = 'tolkien';
     }
+
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}&timeout=10000`);
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.serverToBook(book));
