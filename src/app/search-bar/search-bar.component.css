@@ -1,0 +1,6 @@
+.search-form{
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+    justify-content: center;
+    display: flex;
+}

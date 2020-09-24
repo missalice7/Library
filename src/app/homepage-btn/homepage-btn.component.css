@@ -1,7 +1,7 @@
 a{
     text-decoration: none;
     color: black;
-    padding: 15px;
+    
 }
 a::before{
     content: "🏠 ";
@@ -11,7 +11,6 @@ a:hover{
 }
 
 .hp-btn{
-    border-bottom: 1px solid black;
     text-align: center;
     padding: 15px;
     font-family: 'Arial Rounded MT', Arial, Helvetica, sans-serif;
@@ -21,5 +20,6 @@ a:hover{
     .hp-btn{
         font-size: 25px;
         height: 58px;
+        padding-top: 15px;
     }
   }

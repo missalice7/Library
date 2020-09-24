@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   closeSidebar(): void {
-    this.sidebarStatus = 'inactive';
+    this.sidebarStatus = 'sidebar';
     this.closeBtnStatus = 'inactive';
   }
 
