@@ -1,12 +1,12 @@
 .active{
     display: block;
 }
+.inactive{
+    display: none;
+}
 
 @media only screen and (max-width: 1024px) {
     .sidebar{
       display: none;
-    }
-    .close-btn{
-        display: none;
     }
   }

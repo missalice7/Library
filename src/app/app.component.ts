@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Library';
 
-  closeBtnStatus = 'close-btn';
+  closeBtnStatus = 'inactive';
   sidebarStatus = 'sidebar';
 
   openSidebar(): void {
@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   closeSidebar(): void {
-    this.sidebarStatus = 'close-btn';
+    this.sidebarStatus = 'inactive';
     this.closeBtnStatus = 'sidebar';
   }
 
