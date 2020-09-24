@@ -79,7 +79,7 @@ rawToBook(rawBook: RawBook): Book{
 async getAllBooks(): Promise<Book[]> {
 
     await fetch(this.author = this.localStorageService.checkLocalStorage());
-    const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}`);
+    const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/search?author=${this.author}&timeout=10000`);
     const serverBooks = (await booksResponse.json()).docs as ServerBook[];
     const books = serverBooks.map((book) => this.serverToBook(book));
 
