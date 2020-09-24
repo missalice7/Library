@@ -1,10 +1,10 @@
 .sidebar{
-    width: 20%;
-    height: 100vh;
-    float: left;
-    overflow-x: hidden; 
-    overflow-y: scroll; 
-    background-color: rgba(231, 208, 187, 1);
+  width: 20%;
+  height: 100vh;
+  float: left;
+  overflow-x: hidden; 
+  overflow-y: scroll; 
+  background-color: rgba(231, 208, 187, 1);
 }
 
 ::-webkit-scrollbar {
