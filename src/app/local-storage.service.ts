@@ -7,15 +7,17 @@ export class LocalStorageService {
 
   constructor() { }
 
-  author: string;
 
   checkLocalStorage(): string{
-    if (localStorage.length === 0 || localStorage === undefined){
+    if (localStorage.length === 0 || localStorage === undefined || localStorage === null){
       localStorage.setItem('author', JSON.stringify('tolkien'));
+      const author = JSON.parse(localStorage.getItem('author'));
+      return author;
     }else{
-      this.author = JSON.parse(localStorage.getItem('author'));
+      const author = JSON.parse(localStorage.getItem('author'));
+      return author;
     }
-    return this.author;
+
   }
 
   newLocalStorage(newauthor: string): void{
