@@ -22,10 +22,10 @@ export class SearchAuthorService {
         return this.subject.asObservable();
     }
 
-
     reloadBookList(newlist: boolean): void{
       this.subject.next(newlist);
     }
+
     startReload(): Observable<any> {
       return this.subject.asObservable();
   }
