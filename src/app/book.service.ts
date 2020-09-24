@@ -89,10 +89,6 @@ async getAllBooks(): Promise<Book[]> {
 
 async getBook(id: Book['id']): Promise<Book> {
 
-    if (this.bookCache.has(id)) {
-      this.bookCache.get(id);
-    }
-
     const booksResponse = await fetch(`https://gnm-book-class.herokuapp.com/books?id=${id}&format=json&jscmd=details`);
     const rawBook = (await booksResponse.json()).details as RawBook;
     const book = this.rawToBook(rawBook);
