@@ -8,17 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Library';
 
-  sidebarMobileStatus = 'sidebar-mobile';
-  closeBtnStatus = 'sidebar-mobile';
+  closeBtnStatus = 'close-btn';
+  sidebarStatus = 'sidebar';
 
   openSidebar(): void {
-    this.sidebarMobileStatus = 'display-show';
-    this.closeBtnStatus = 'display-show';
+    this.sidebarStatus = 'active';
+    this.closeBtnStatus = 'active';
   }
 
   closeSidebar(): void {
-    this.sidebarMobileStatus = 'sidebar-mobile';
-    this.closeBtnStatus = 'sidebar-mobile';
+    this.sidebarStatus = 'close-btn';
+    this.closeBtnStatus = 'sidebar';
   }
 
 

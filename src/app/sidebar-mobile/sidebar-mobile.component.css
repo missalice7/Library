@@ -1,8 +1,0 @@
-.sidebar-mobile{
-    display: block;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(231, 208, 187, 1);
-    z-index: 10;
-    position: absolute;
-  }

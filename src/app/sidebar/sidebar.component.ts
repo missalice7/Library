@@ -13,9 +13,8 @@ export class SidebarComponent implements OnInit {
   getAuthor(): void{
     window.location.reload();
   }
-  
-  ngOnInit(): void {
 
+  ngOnInit(): void {
 
   }
 

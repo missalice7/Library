@@ -1,10 +1,8 @@
 <app-list-btn (opensidebar)="openSidebar()"></app-list-btn>
-<app-sidebar class="sidebar-desktop"></app-sidebar>
+<app-sidebar 
+    [ngClass]="sidebarStatus"></app-sidebar>
 <app-close-btn 
     [ngClass]="closeBtnStatus"
     (closesidebar)="closeSidebar()"
 ></app-close-btn> 
-<app-sidebar-mobile
-    [ngClass]="sidebarMobileStatus"
-></app-sidebar-mobile>
 <router-outlet></router-outlet>
