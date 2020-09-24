@@ -9,7 +9,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 export class HomepageBtnComponent implements OnInit {
 
   faHome = faHome;
-  
+
   constructor() { }
 
   ngOnInit(): void {

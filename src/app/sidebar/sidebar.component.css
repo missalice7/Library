@@ -50,6 +50,7 @@
     position: absolute;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    transition: all 650ms ease-in-out;
   }
 
   ::-webkit-scrollbar {

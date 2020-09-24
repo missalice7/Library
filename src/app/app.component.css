@@ -1,12 +1,24 @@
+.list-btn{
+  transition: all 500ms ease-in-out;
+}
+
 .active{
-    display: block;
+  transition: all 500ms ease-in-out;
+  opacity: 1;
+  height: auto;
+  
 }
 .inactive{
-    display: none;
+    transition: all 500ms ease-in-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 1024px) {
     .sidebar{
-      display: none;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
     }
   }
