@@ -35,7 +35,6 @@ export class BookService implements OnDestroy {
   }
 
 
-
   serverToBook(serverBook: ServerBook): Book {
 
   return {

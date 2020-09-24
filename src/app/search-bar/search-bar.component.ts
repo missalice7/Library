@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LocalStorageService } from '../local-storage.service';
 import { SearchAuthorService } from './../search-author.service';
